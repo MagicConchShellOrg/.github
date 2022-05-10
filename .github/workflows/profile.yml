@@ -11,8 +11,7 @@ jobs:
       - name: checkout
         uses: actions/checkout@v2
         with:
-          persist-credentials: false
-          fetch-depth: 0
+          repository: MagicConchShellOrg/.github
       
       - name: fetch linear issues and update README.md
         run: |
