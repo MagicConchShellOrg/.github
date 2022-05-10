@@ -5,9 +5,6 @@
 [计划文档](https://github.com/MagicConchShellOrg/road-map)
 ## Issues
 <!--LinearIssues-->
-multi
-lines
-should
-be
-replaced
+[issue-test-2](https://linear.app/shell/issue/MAG-15/issue-test-2)
+[issue-test](https://linear.app/shell/issue/MAG-14/issue-test)
 <!--LinearIssues-->
