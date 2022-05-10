@@ -20,20 +20,20 @@ jobs:
           export PAYLOAD=$(printf '[%s](%s)\\n' $(cat issues.json | jq '.data.issues.nodes[]' | jq '.title, .url' | tr ' ' '-' | xargs -n 2))
           export ACT_TAG='<!--LinearIssues-->'
 
-          sed -i -e ':a;N;$!ba' -e "s#${ACT_TAG}.*${ACT_TAG}#${ACT_TAG}\n${PAYLOAD}${ACT_TAG}#" README.md
+          sed -i -e ':a;N;$!ba' -e "s#${ACT_TAG}.*${ACT_TAG}#${ACT_TAG}\n${PAYLOAD}${ACT_TAG}#" profile/README.md
 
       - name: verify changed files
         uses: tj-actions/verify-changed-files@v9
         id: verify-changed-files
         with:
-          files: README.md
+          files: profile/README.md
 
       - name: commit changes
         if: steps.verify-changed-files.outputs.files_changed == 'true'
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
-          git add README.md
+          git add profile/README.md
           git commit -m "Update README.md"
 
       - name: push changes
