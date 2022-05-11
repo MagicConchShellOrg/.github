@@ -20,9 +20,9 @@ jobs:
       
       - name: fetch linear issues and update README.md
         run: |
-          curl -s -H "Authorization:${{ secrets.LINEAR_TOKEN }}" -H 'Content-Type: application/json' -d '{"query":"{issues(filter:{labels:{name:{eq:\"gh\"}}}){nodes{id title identifier priority url createdAt updatedAt state{name}}}}"}' https://api.linear.app/graphql > issues.json
+          curl -s -H "Authorization:${{ secrets.LINEAR_TOKEN }}" -H 'Content-Type: application/json' -d '{"query":"{issues(filter:{ labels:{name:{eq:\"gh\"}} state:{name:{eq:\"Todo\"}} }){nodes{id title identifier priority url createdAt updatedAt state{name}}}}"}' https://api.linear.app/graphql > issues.json
           
-          export PAYLOAD=$(printf '[%s](%s)\\n' $(cat issues.json | jq '.data.issues.nodes[]' | jq '.title, .url' | tr ' ' '-' | xargs -n 2))
+          export PAYLOAD=$(printf '[%s](%s)\\n\\n' $(cat issues.json | jq '.data.issues.nodes[]' | jq '.title, .url' | tr ' ' '-' | xargs -n 2))
           export ACT_TAG='<!--LinearIssues-->'
 
           sed -i -e ':a;N;$!ba' -e "s#${ACT_TAG}.*${ACT_TAG}#${ACT_TAG}\n${PAYLOAD}${ACT_TAG}#" profile/README.md
