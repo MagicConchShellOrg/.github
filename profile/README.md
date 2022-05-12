@@ -5,6 +5,10 @@
 [计划文档](https://github.com/MagicConchShellOrg/road-map)
 ## Issues
 <!--LinearIssues-->
+[一个帮助开发者协同做-idea-project-的信息聚合-repo](https://linear.app/shell/issue/MAG-19/一个帮助开发者协同做-idea-project-的信息聚合-repo)
+
+[每天五点叫恺恺起床](https://linear.app/shell/issue/MAG-18/每天五点叫恺恺起床)
+
 [开发者信息网站，细分专有领域的信息聚合和分发吗](https://linear.app/shell/issue/MAG-17/开发者信息网站，细分专有领域的信息聚合和分发吗)
 
 [液，可以从-Linear-自动拉-Issue-到-Github-了](https://linear.app/shell/issue/MAG-16/液，可以从-linear-自动拉-issue-到-github-了)
